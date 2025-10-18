@@ -1,0 +1,206 @@
+:root {
+  --accent1: #38c87a;
+  --accent2: #9df0c8;
+  --text: #0b3f2f;
+  --card-bg: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #e6f9ed 0%, #d6f3e3 100%);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Bố cục 2 bên */
+.team-section {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 40px 40px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* Cột nội dung bên trái */
+.text-area {
+  flex: 2 1 400px;
+  text-align: left;
+}
+
+.text-area h1 {
+  font-size: 70px;
+  font-weight: 800;
+  margin-bottom: 50px;
+  color: var(--text);
+}
+
+.text-area p {
+  font-size: 20px;
+  line-height: 1.5;
+  color: rgba(11, 63, 47, 0.9);
+  max-width: 500px;
+}
+
+/* Cột phải chứa card */
+.team-rows {
+  flex: 1 1 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: right;
+}
+
+/* Tiêu đề nhóm */
+.group-title {
+  font-size: 50px;
+  font-weight: 800;
+  color: var(--accent1);
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: glow 5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 6px var(--accent1); }
+  to { text-shadow: 0 0 18px var(--accent2), 0 0 10px #bfffe5; }
+}
+
+/* Hàng thành viên */
+.member-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px; /* khoảng cách giữa các card */
+}
+
+/* Thẻ thành viên */
+.member {
+  text-decoration: none;
+  color: inherit;
+  width: 260px; /* to hơn trước */
+  transition: transform 0.5s ease;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(11, 63, 47, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.5s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 300px; /* cao hơn để đỡ trống */
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease, filter 0.4s ease;
+}
+
+/* Thông tin thành viên */
+.member-info {
+  padding: 18px 15px 22px;
+  text-align: center;
+}
+
+.member-info h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.member-info p {
+  font-size: 15px;
+  color: #666;
+}
+
+/* Hover effect */
+.member:hover .card {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 18px 38px rgba(11, 63, 47, 0.25);
+}
+
+.member:hover img {
+  transform: scale(1.07);
+  filter: brightness(1.1) saturate(1.2);
+}
+
+.member:hover .member-info h3 {
+  color: var(--accent1);
+  text-shadow: 0 0 10px var(--accent2);
+}
+
+/* Responsive */
+@media (max-width: 950px) {
+  .team-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+  }
+
+  .text-area {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .text-area h1 {
+    font-size: 50px;
+  }
+
+  .text-area p {
+    font-size: 18px;
+    max-width: 90%;
+  }
+
+  .member {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .member {
+    width: 100%;
+  }
+}
+.team-grid {
+  position: relative;
+}
+
+.decor-image {
+  position: absolute;
+  left: 235px;    
+  bottom: 40px;/* Đưa hình lên gần vị trí mong muốn */
+  transform: translateX(-50%);
+  width: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Làm hình co giãn mềm mại */
+.decor-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hiệu ứng hover */
+.decor-image:hover {
+  transform: translateX(-50%) scale(1.08) rotate(3deg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
